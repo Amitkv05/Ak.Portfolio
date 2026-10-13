@@ -1,0 +1,14 @@
+/*
+ * Global stylesheet entry point.
+ * Section styles live in /styles so each area can be maintained independently.
+ */
+
+@import "../styles/base.css";
+@import "../styles/nav.css";
+@import "../styles/splash.css";
+@import "../styles/home.css";
+@import "../styles/about.css";
+@import "../styles/skills.css";
+@import "../styles/projects.css";
+@import "../styles/projectCase.css";
+@import "../styles/footer.css";

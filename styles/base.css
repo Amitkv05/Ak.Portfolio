@@ -1,0 +1,149 @@
+/* Global tokens, resets, shared layout utilities, accessibility, and page flow. */
+
+:root {
+  --paper: #080808;
+  --paper-2: #0e0e0e;
+  --ink: #f3f0e9;
+  --muted: #9a9891;
+  --line: rgba(255, 255, 255, 0.13);
+  --white: #151515;
+  --accent: #ff5b19;
+  --accent-contrast: #080808;
+  --surface: #121212;
+  --surface-strong: #171717;
+  --nav-bg: rgba(8, 8, 8, 0.82);
+  --hero-glow: rgba(255, 91, 25, 0.3);
+  color-scheme: dark;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+  color: var(--ink);
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+::selection {
+  background: #111;
+  color: #fff;
+}
+.app {
+  overflow: clip;
+}
+.section-shell {
+  width: min(1480px, calc(100% - 48px));
+  margin-inline: auto;
+}
+.year-pill {
+  display: inline-flex;
+  padding: 7px 15px;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+.section-number,
+.micro-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+@media (max-width: 760px) {
+  .section-shell {
+    width: min(100% - 28px, 1480px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease,
+    border-color 0.35s ease;
+}
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+.year-pill {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+html,
+body,
+#root {
+  min-height: 100%;
+}
+body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.app {
+  overflow-x: clip;
+  overflow-y: visible;
+}
+main {
+  display: block;
+  width: 100%;
+}
+main > section {
+  position: relative;
+  scroll-margin-top: 76px;
+}
+@media (max-width: 760px) {
+  main > section {
+    scroll-margin-top: 66px;
+  }
+}
+html {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#root,
+.app,
+main {
+  height: auto;
+  max-height: none;
+}

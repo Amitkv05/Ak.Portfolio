@@ -1,0 +1,538 @@
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
+.projects {
+  --folder-bg: #171717;
+  --folder-bg-hover: #201713;
+  --folder-text: #f5f3ef;
+  --folder-muted: #a6a09b;
+  --folder-accent: #ff641b;
+  --folder-border: rgba(255, 255, 255, 0.08);
+  --folder-tag-bg: rgba(255, 255, 255, 0.045);
+
+  position: relative;
+  min-height: 0;
+  padding-block: 110px 120px;
+  color: var(--folder-text);
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.projects .projects-heading {
+  display: block;
+  margin-bottom: 65px;
+}
+
+.projects .section-number {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--folder-muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.projects .projects-title-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+.projects h2 {
+  margin: 0;
+  font-size: clamp(54px, 7vw, 105px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.075em;
+  color: var(--folder-text);
+}
+
+.projects .projects-intro {
+  max-width: 530px;
+  margin: 0;
+  color: var(--folder-muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   FOLDER GRID
+========================================= */
+
+.projects .folder-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+
+.projects .folder-card-reveal {
+  display: block;
+  min-width: 0;
+  height: 100%;
+}
+
+.projects .folder-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+
+  color: var(--folder-text);
+  text-decoration: none;
+  cursor: pointer;
+
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.12));
+}
+
+/* =========================================
+   TOP FOLDER TAB
+========================================= */
+
+.projects .folder-tab {
+  position: relative;
+  width: 40%;
+  height: 40px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 25px;
+  margin-bottom: -1px;
+
+  background: var(--folder-bg);
+
+  clip-path: polygon(0 0, 72% 0, 100% 100%, 0 100%);
+
+  transition: background 0.35s ease;
+}
+
+.projects .folder-tab span {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--folder-accent);
+}
+
+/* =========================================
+   FOLDER BODY - FIXED LAYOUT
+========================================= */
+
+.projects .folder-body {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+  gap: 0;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 360px;
+
+  padding: 30px;
+
+  background: var(--folder-bg);
+
+  border: 1px solid var(--folder-border);
+  border-top: 0;
+  border-radius: 0 18px 18px 18px;
+
+  overflow: hidden;
+  box-sizing: border-box;
+
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* SUBTLE HIGHLIGHT */
+
+.projects .folder-body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at 100% 100%,
+    rgba(255, 100, 27, 0.045),
+    transparent 55%
+  );
+
+  pointer-events: none;
+}
+
+/* =========================================
+   TOP: EYEBROW AND YEAR
+========================================= */
+
+.projects .folder-top {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 18px;
+  width: 100%;
+  min-width: 0;
+}
+
+.projects .folder-eyebrow {
+  min-width: 0;
+  max-width: 75%;
+
+  color: var(--folder-text);
+
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+
+  overflow-wrap: break-word;
+}
+
+.projects .folder-top-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+
+  flex-shrink: 0;
+}
+
+.projects .folder-year {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--folder-muted);
+}
+
+.projects .folder-top-right svg {
+  flex-shrink: 0;
+  color: var(--folder-accent);
+
+  transition: transform 0.3s ease;
+}
+
+.projects .folder-card:hover .folder-top-right svg {
+  transform: translate(3px, -3px);
+}
+
+/* =========================================
+   MIDDLE: PROJECT TYPE + TECHNOLOGIES
+========================================= */
+
+.projects .folder-information {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+
+  margin-top: 32px;
+  padding-top: 22px;
+
+  border-top: 1px solid var(--folder-border);
+
+  min-width: 0;
+}
+
+/* PROJECT TYPE */
+
+.projects .folder-project-type {
+  display: block;
+  max-width: 100%;
+
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1.6;
+
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+
+  color: var(--folder-accent);
+
+  overflow-wrap: break-word;
+}
+
+/* TECHNOLOGY TAGS */
+
+.projects .folder-stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 8px;
+
+  width: 100%;
+  min-width: 0;
+}
+
+.projects .folder-stack-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 100%;
+  min-width: 0;
+
+  padding: 8px 12px;
+
+  border: 1px solid var(--folder-border);
+  border-radius: 999px;
+
+  background: var(--folder-tag-bg);
+  color: var(--folder-text);
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.35;
+
+  overflow-wrap: anywhere;
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* =========================================
+   BOTTOM: CASE STUDY + PROJECT NAME
+========================================= */
+.projects .folder-bottom {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  gap: 14px;
+
+  width: 100%;
+  min-width: 0;
+
+  margin-top: auto;
+  padding-top: 45px;
+}
+
+/* CASE STUDY LINK TEXT */
+
+.projects .folder-footer {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+
+  color: var(--folder-accent);
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  white-space: nowrap;
+}
+
+.projects .folder-footer svg {
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+/* PROJECT NAME - BOTTOM RIGHT */
+
+.projects .folder-title {
+  display: block;
+  width: 100%;
+  min-width: 0;
+
+  text-align: right;
+  text-transform: uppercase;
+
+  font-size: clamp(25px, 2.5vw, 48px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+
+  color: var(--folder-text);
+
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   HOVER EFFECTS
+========================================= */
+
+.projects .folder-card:hover .folder-tab,
+.projects .folder-card:hover .folder-body {
+  background: var(--folder-bg-hover);
+}
+
+.projects .folder-card:hover .folder-body {
+  border-color: rgba(255, 100, 27, 0.27);
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 100, 27, 0.04),
+    0 24px 45px rgba(0, 0, 0, 0.14);
+}
+
+.projects .folder-card:hover .folder-stack-item {
+  border-color: rgba(255, 100, 27, 0.16);
+}
+
+.projects .folder-card:hover .folder-footer svg {
+  transform: translate(4px, -4px);
+}
+
+.projects .folder-card:focus-visible {
+  outline: 2px solid var(--folder-accent);
+  outline-offset: 6px;
+}
+
+
+
+/* =========================================
+   SMALL DESKTOP
+========================================= */
+
+@media (max-width: 1250px) {
+  .projects .folder-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .projects .folder-body {
+    min-height: 350px;
+  }
+
+  .projects .folder-title {
+    font-size: clamp(28px, 3.5vw, 44px);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+  .projects {
+    padding-block: 85px;
+  }
+
+  .projects .projects-heading {
+    margin-bottom: 48px;
+  }
+
+  .projects .projects-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .projects .projects-intro {
+    max-width: 580px;
+  }
+
+  .projects .folder-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .projects .folder-body {
+    min-height: 320px;
+  }
+
+  .projects .folder-title {
+    font-size: clamp(32px, 6vw, 48px);
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .projects {
+    padding-block: 65px;
+  }
+
+  .projects h2 {
+    font-size: clamp(47px, 12vw, 65px);
+  }
+
+  .projects .projects-intro {
+    font-size: 13px;
+  }
+
+  .projects .folder-tab {
+    height: 42px;
+    padding-inline: 18px;
+  }
+
+  .projects .folder-body {
+    min-height: 335px;
+    padding: 20px;
+  }
+
+  .projects .folder-eyebrow {
+    font-size: 14px;
+  }
+
+  .projects .folder-year {
+    font-size: 11px;
+  }
+
+  .projects .folder-top-right {
+    gap: 6px;
+  }
+
+  .projects .folder-information {
+    margin-top: 24px;
+    padding-top: 18px;
+    gap: 15px;
+  }
+
+  .projects .folder-stack-item {
+    font-size: 10px;
+    padding: 7px 10px;
+  }
+
+  @media (max-width: 480px) {
+    .projects .folder-bottom {
+      gap: 12px;
+      padding-top: 32px;
+    }
+
+    .projects .folder-title {
+      font-size: clamp(30px, 9vw, 44px);
+    }
+
+    .projects .folder-footer {
+      font-size: 11px;
+    }
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .projects .folder-card,
+  .projects .folder-tab,
+  .projects .folder-body,
+  .projects .folder-footer svg,
+  .projects .folder-top-right svg,
+  .projects .folder-stack-item {
+    transition: none;
+  }
+}
