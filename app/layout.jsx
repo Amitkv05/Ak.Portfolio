@@ -1,6 +1,6 @@
 import "./globals.css";
 
-const siteUrl = "https://YOUR-PORTFOLIO-URL.vercel.app";
+const siteUrl = "https://ak-portfolio-lovat-five.vercel.app";
 
 const title = "AK Portfolio | React.js, MERN & Flutter Developer";
 
